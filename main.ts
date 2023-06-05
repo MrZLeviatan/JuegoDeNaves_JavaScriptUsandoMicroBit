@@ -23,5 +23,30 @@ Enemigo1.delete()
 Disparo.delete()
 game.setScore(0)
 basic.forever(function () {
-	
+    if (Disparo.isTouching(Enemigo1)) {
+        Enemigo1.delete()
+        Disparo.delete()
+        game.addScore(1)
+    } else if (Enemigo1.isTouching(Nave)) {
+        game.gameOver()
+    } else if (Enemigo1.get(LedSpriteProperty.X) == 4) {
+        game.gameOver()
+    }
+})
+basic.forever(function () {
+    if (Disparo.get(LedSpriteProperty.Y) == 0) {
+        Disparo.delete()
+    }
+})
+basic.forever(function () {
+    basic.pause(randint(1000, 3000))
+    if (Enemigo1.isDeleted()) {
+        Enemigo1 = game.createSprite(randint(0, 4), 0)
+    }
+})
+basic.forever(function () {
+    basic.pause(1000)
+    if (!(Enemigo1.isDeleted())) {
+        Enemigo1.change(LedSpriteProperty.Y, 1)
+    }
 })
