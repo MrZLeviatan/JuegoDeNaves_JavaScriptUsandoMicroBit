@@ -2,7 +2,7 @@
 input.onButtonPressed(Button.A, function () {
     Nave.move(-1)
 })
-// SE ESTABLECE LAS FUNCIONES DEL BOTON A+B, LO CUAL OCACIONA EL EVENTO DE DISPARO
+// SE ESTABLECE LAS FUNCIONES DEL BOTON A+B, LO CUAL OCACIONA EL EVENTO DE DISPARO EN DIRECCION AL EJE Y
 input.onButtonPressed(Button.AB, function () {
     Disparo = game.createSprite(Nave.get(LedSpriteProperty.X), Nave.get(LedSpriteProperty.Y))
     for (let index = 0; index < 5; index++) {
